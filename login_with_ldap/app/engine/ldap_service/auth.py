@@ -1,21 +1,24 @@
-import ldap3
-
-from .models.LdapUser import LdapUser
+from http import server
+from ldap3 import Server, Connection, ALL, SUBTREE
+from ldap3.core.exceptions import LDAPException, LDAPBindError
+from numpy import true_divide
+from .models import *
 
 # ldap login
 def ldap_login(user: LdapUser) -> bool:
+
     username = user.get_username()
     password = user.get_password()
-    lg_server = 'ldap://ldap.example.com'
-    ld = ldap3.Server(lg_server, port=389, use_ssl=False)
-    lg_conn = ldap3.Connection(ld, auto_bind=True, client_strategy=ldap3.STRATEGY_SYNC)
-    lg_conn.search(search_base='dc=example,dc=com', search_filter='(uid=%s)' % username, attributes=['uid'])
-    if lg_conn.response:
-        lg_conn.bind(username, password)
-        if lg_conn.bound:
+    try:
+        server = Server('ipa.demo1.freeipa.org',  get_info=ALL)
+        conn = Connection(server, 'uid=%s,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org' % username, password=password, auto_bind=True)
+        result = conn.search('dc=demo1,dc=freeipa,dc=org', '(&(objectclass=person)(uid=%s))' % username, attributes=['sn', 'krbLastPwdChange', 'objectclass'])
+        if conn.result['description'] == 'success':
             return True
         else:
             return False
-    else:
+    except LDAPException as e:
         return False
-        
+
+   
+    
