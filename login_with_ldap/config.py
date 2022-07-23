@@ -1,9 +1,13 @@
-import dotenv
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 class Config(object):
     """
     """
-    MONGODB_URL = dotenv.get('MONGODB_URL')
+    MONGODB_URL = os.environ.get('MONGODB_URL')
     MONGODB_DB = "lvtn"
 class DevelopmentConfig(Config):
     """
