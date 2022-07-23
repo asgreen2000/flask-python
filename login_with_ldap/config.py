@@ -1,7 +1,9 @@
+import dotenv
+
 class Config(object):
     """
     """
-    MONGODB_URL = "mongodb+srv://asgreen:14042023@cluster0.aywbz.mongodb.net/lvtn?retryWrites=true&w=majority"
+    MONGODB_URL = dotenv.get('MONGODB_URL')
     MONGODB_DB = "lvtn"
 class DevelopmentConfig(Config):
     """
