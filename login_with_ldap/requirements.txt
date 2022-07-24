@@ -6,3 +6,4 @@ pymongo
 numpy
 flask-mongoengine
 flask-cors
+flask_profiler

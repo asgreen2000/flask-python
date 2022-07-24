@@ -3,11 +3,15 @@ from config import app_config
 from app.connection.db_connector import db as db_connector 
 import logging
 from flask_cors import CORS
+import flask_profiler
 
 app = Flask(__name__, instance_relative_config=True)
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s:%(levelname)s:%(message)s')
 CORS(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+# profiler
+
 
 def create_app(config_name):
     
