@@ -1,5 +1,6 @@
 import enum
 from dataclasses import dataclass
+from http.client import NOT_MODIFIED
 
 
 class _Status:
@@ -29,7 +30,8 @@ class APIStatus:
     INVALID_DATA = _Status(-111, 'invalid data')
     INVALID_CREDENTIALS = _Status(-112, 'invalid credentials')
     INVALID_TOKEN = _Status(-113, 'invalid token')
-    EX_PIRED_TOKEN = _Status(-114, 'expired token')
+    EX_PIRED_TOKEN = _Status(-114, 'expired token'),
+    NOT_MODIFIED = _Status(-115, 'not modified')
     SERVER_ERROR = _Status(-200, 'server error')
     NOT_IMPLEMENTED = _Status(-201, 'not implemented')
     SERVICE_UNAVAILABLE = _Status(-202, 'service unavailable')

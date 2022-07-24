@@ -22,3 +22,7 @@ def insert_if_absent(user: User) -> User:
         return insert_user(user)
     else:
         return current_user
+
+def update_user_info_by_id(id: str, user: dict) -> bool:
+    result = users_collection.update_one({'_id': ObjectId(id)}, {'$set': user})
+    return result.modified_count > 0

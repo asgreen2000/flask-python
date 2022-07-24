@@ -9,5 +9,6 @@ def castJsonUser(jsonUser: str) -> User:
     role = jsonUser['role']
     user_id = str(jsonUser['_id'])
     return User(username, name, phone_number, role).set_id(user_id)
+
     
    
