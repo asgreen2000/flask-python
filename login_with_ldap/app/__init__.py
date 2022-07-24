@@ -12,5 +12,5 @@ def create_app(config_name):
     
     from .handlers.users import users as users_blueprint
     # register users_blueprint
-    app.register_blueprint(users_blueprint, url_prefix='/users')
+    app.register_blueprint(users_blueprint, url_prefix='/api/users')
     return app

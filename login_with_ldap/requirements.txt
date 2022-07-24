@@ -1,1 +1,7 @@
-python-dotenv-0.20.0
+python-dotenv
+flask
+pyjwt
+ldap3
+pymongo
+numpy
+flask-mongoengine

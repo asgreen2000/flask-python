@@ -17,3 +17,5 @@ def get_user_info(user: User, username: str):
         return Response(APIStatus.NOT_FOUND).to_json()
     else:
         return ResponseObject(APIStatus.SUCCESS, user.to_json()).to_json()
+
+
