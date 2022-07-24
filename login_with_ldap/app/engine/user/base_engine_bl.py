@@ -1,14 +1,14 @@
 from pydoc import Helper
-from .models.User import User, collection as users_collection
+from .models.User import User, UserUtil, collection as users_collection
 from .helper import *
 
 def find_user_by_id(id) -> User:
     data = users_collection.find_one({'_id': id})
-    return castJsonUser(data) if data else None
+    return UserUtil.cast(data) if data else None
 
 def find_user_by_username(username) -> User:
     data = users_collection.find_one({'username': username})
-    return castJsonUser(data) if data else None
+    return UserUtil.cast(data) if data else None
 
 def insert_user(user: User) -> User:
     users_collection.insert_one(user.to_json())

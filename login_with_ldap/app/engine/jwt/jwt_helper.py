@@ -6,7 +6,7 @@ from flask import Flask, request
 from app import app
 from app.constants.response import APIStatus, Response
 from app.engine.jwt.models.jwt_result import JwtResult
-from app.engine.user.models import User
+from app.engine.user.models import User, UserUtil
 
 
 def generate_token(user: User, is_refresh: bool = False) -> JwtResult:
@@ -43,13 +43,20 @@ def token_required(f):
         try:
             # decode token
             payload = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])
-            
             # get user from payload
-            user = User(payload['sub'])
+            
+            user = UserUtil.cast(payload['sub'])
             return f(user, *args, **kwargs)
-        except:
+        except jwt.ExpiredSignatureError:
             app.logger.error('Token is invalid')
+            return Response(APIStatus.EX_PIRED_TOKEN).to_json()
+        except jwt.InvalidTokenError:
+            app.logger.error('Token is invalid')
+            return Response(APIStatus.INVALID_TOKEN).to_json()
+        except Exception as e:
+            app.logger.error(e)
             return Response(APIStatus.SERVER_ERROR).to_json()
+        
         
   
     return decorated

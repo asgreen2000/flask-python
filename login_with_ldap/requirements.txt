@@ -5,3 +5,4 @@ ldap3
 pymongo
 numpy
 flask-mongoengine
+flask-cors

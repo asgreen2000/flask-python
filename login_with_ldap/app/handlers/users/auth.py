@@ -26,7 +26,7 @@ def login():
             jwt_user: JwtResult = generate_token(user)
             jwt_user_refresh: JwtResult = generate_token(user, True)
 
-            response_data = AuthReponse(jwt_user.get_token(), jwt_user.get_expired_at(), jwt_user_refresh.get_token())
+            response_data = AuthReponse(user.get_id(), username, jwt_user.get_token(), jwt_user.get_expired_at(), jwt_user_refresh.get_token())
             return ResponseObject(APIStatus.SUCCESS, response_data.to_json()).to_json()
         else:
             return Response(APIStatus.INVALID_CREDENTIALS).to_json()
