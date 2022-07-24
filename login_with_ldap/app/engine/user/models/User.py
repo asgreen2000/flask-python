@@ -65,7 +65,6 @@ class UserUtil:
 
     @staticmethod
     def cast(json: str) -> User:
-        print("json" , json)
         username = json['username']
         name = json['name']
         phone_number = json['phone_number']

@@ -565,3 +565,25 @@
 2022-07-24 13:32:21,830:WARNING: * Debugger is active!
 2022-07-24 13:32:21,835:INFO: * Debugger PIN: 287-636-375
 2022-07-24 13:32:21,856:INFO:127.0.0.1 - - [24/Jul/2022 13:32:21] "GET /api/users/62dcdab3b5146240c98bef94 HTTP/1.1" 200 -
+2022-07-24 13:44:17,840:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-24 13:44:17,844:INFO: * Restarting with stat
+2022-07-24 13:44:23,834:WARNING: * Debugger is active!
+2022-07-24 13:44:23,839:INFO: * Debugger PIN: 287-636-375
+2022-07-24 13:44:24,711:INFO:127.0.0.1 - - [24/Jul/2022 13:44:24] "[32mPOST /api/users HTTP/1.1[0m" 308 -
+2022-07-24 13:44:28,835:INFO:127.0.0.1 - - [24/Jul/2022 13:44:28] "POST /api/users/ HTTP/1.1" 200 -
+2022-07-24 13:44:49,200:INFO: * Detected change in 'd:\\Flask\\login_with_ldap\\app\\engine\\user\\models\\User.py', reloading
+2022-07-24 13:44:49,727:INFO: * Restarting with stat
+2022-07-24 13:44:55,500:WARNING: * Debugger is active!
+2022-07-24 13:44:55,515:INFO: * Debugger PIN: 287-636-375
+2022-07-24 13:54:46,921:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-24 13:54:46,925:INFO: * Restarting with stat
+2022-07-24 13:54:52,600:WARNING: * Debugger is active!
+2022-07-24 13:54:52,605:INFO: * Debugger PIN: 287-636-375
+2022-07-24 13:54:52,625:INFO:127.0.0.1 - - [24/Jul/2022 13:54:52] "[32mPOST /api/users HTTP/1.1[0m" 308 -
+2022-07-24 13:54:56,268:INFO:127.0.0.1 - - [24/Jul/2022 13:54:56] "POST /api/users/ HTTP/1.1" 200 -
+2022-07-24 13:55:50,211:INFO:127.0.0.1 - - [24/Jul/2022 13:55:50] "[32mPOST /api/users HTTP/1.1[0m" 308 -
+2022-07-24 13:55:52,470:INFO:127.0.0.1 - - [24/Jul/2022 13:55:52] "POST /api/users/ HTTP/1.1" 200 -
+2022-07-24 13:56:28,138:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-24 13:56:28,140:INFO: * Restarting with stat
+2022-07-24 13:56:33,894:WARNING: * Debugger is active!
+2022-07-24 13:56:33,894:INFO: * Debugger PIN: 287-636-375
