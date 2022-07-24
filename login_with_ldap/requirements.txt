@@ -1,1 +1,1 @@
-jwt
+python-dotenv-0.20.0

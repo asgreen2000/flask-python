@@ -15,13 +15,9 @@ class DevelopmentConfig(Config):
     LDAP_SERVER = 'ipa.demo1.freeipa.org'
     DEBUG = True
     SQLALCHEMY_ECHO = True
-    MONGODB_SETTINGS = {
-        'db': 'your_database',
-        'host': 'localhost',
-        'port': 27017
-    }
 
     SECRET_KEY = 'adgjmptw'
+    FLASK_ENV = 'development'
 
     
 class ProductionConfig(Config):
@@ -29,12 +25,8 @@ class ProductionConfig(Config):
     """
     LDAP_SERVER = 'ipa.demo1.freeipa.org'
     DEBUG = False
-    MONGODB_SETTINGS = {
-        'db': 'your_database',
-        'host': 'localhost',
-        'port': 27017
-    }
     SECRET_KEY = 'adgjmptw'
+    FLASK_ENV = 'production'
 
 
 app_config = {

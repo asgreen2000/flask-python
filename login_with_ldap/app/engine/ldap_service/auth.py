@@ -12,7 +12,7 @@ def ldap_login(user: LdapUser) -> bool:
     try:
         server = Server('ipa.demo1.freeipa.org',  get_info=ALL)
         conn = Connection(server, 'uid=%s,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org' % username, password=password, auto_bind=True)
-        result = conn.search('dc=demo1,dc=freeipa,dc=org', '(&(objectclass=person)(uid=%s))' % username, attributes=['sn', 'krbLastPwdChange', 'objectclass'])
+        conn.search('dc=demo1,dc=freeipa,dc=org', '(&(objectclass=person)(uid=%s))' % username, attributes=['sn', 'krbLastPwdChange', 'objectclass'])
         if conn.result['description'] == 'success':
             return True
         else:

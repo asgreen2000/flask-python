@@ -2,18 +2,18 @@ import jwt
 from datetime import datetime, timedelta
 from functools import wraps
 # flask imports
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request
 from app import app
-import json
+from app.constants.response import APIStatus, Response
 from app.engine.jwt.models.jwt_result import JwtResult
 from app.engine.user.models import User
 
 
-def generate_token(user: User) -> JwtResult:
+def generate_token(user: User, is_refresh: bool = False) -> JwtResult:
     # generate a token
     try:
         payload = {
-            'exp': datetime.utcnow() + timedelta(days=1),
+            'exp': datetime.utcnow() + timedelta(days=2 if is_refresh else 1),
             'iat': datetime.utcnow(),
             'sub': user.toJSON()
         }
@@ -24,6 +24,7 @@ def generate_token(user: User) -> JwtResult:
         )
         return JwtResult(token, payload['exp'])
     except Exception as e:
+        app.logger.error(e)
         raise e
 
 
@@ -31,25 +32,25 @@ def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         token = None
-        # jwt is passed in the request header
-        if 'x-access-token' in request.headers:
-            token = request.headers['x-access-token']
-        # return 401 if token is not passed
+        # check if Bearer token in header
+        if 'Authorization' in request.headers:
+            token = request.headers['Authorization']
         if not token:
-            return jsonify({'message' : 'Token is missing !!'}), 401
-  
+            return Response(APIStatus.UNAUTHORIZED).to_json()
+        # split bearer token
+        token = token.split(' ')[1]
+        
         try:
-            # decoding the payload to fetch the stored details
-            data = jwt.decode(token, app.config['SECRET_KEY'])
-            # fetch the user id from the payload
-            user: User = data['sub']
+            # decode token
+            payload = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])
             
+            # get user from payload
+            user = User(payload['sub'])
+            return f(user, *args, **kwargs)
         except:
-            return jsonify({
-                'message' : 'Token is invalid !!'
-            }), 401
-        # returns the current logged in users contex to the routes
-        return f(user, *args, **kwargs)
+            app.logger.error('Token is invalid')
+            return Response(APIStatus.SERVER_ERROR).to_json()
+        
   
     return decorated
 

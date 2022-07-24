@@ -5,6 +5,8 @@ from app.engine.ldap_service.models.LdapUser import LdapUser
 from . import users
 from app.engine.user import *
 from app.engine.jwt import *
+from app.constants import APIStatus, Response, ResponseObject
+from .dtos import *
 
 # create a flask routes for the login page
 @users.route('/', methods=['POST'])
@@ -21,21 +23,21 @@ def login():
             user : User = find_user_by_username(username)
             if user is None:
                 user = insert_user(User(username))
-            jwtUser: JwtResult = generate_token(user)
-            return jsonify({
-                'message' : 'Login Successful',
-                'data': {
-                    'token' : jwtUser.get_token(),
-                    'expired_at' : jwtUser.get_expired_at()
-                }
-            }), 200
+            jwt_user: JwtResult = generate_token(user)
+            jwt_user_refresh: JwtResult = generate_token(user, True)
+
+            response_data = AuthReponse(jwt_user.get_token(), jwt_user.get_expired_at(), jwt_user_refresh.get_token())
+            return ResponseObject(APIStatus.SUCCESS, response_data.to_json()).to_json()
         else:
-             return jsonify({
-                'message' : 'Login Failed'
-            }), 404
+            return Response(APIStatus.INVALID_CREDENTIALS).to_json()
 
     else:
         # if the content type is not json, return an error
-        return '{"error": "Content-Type must be application/json"}', 
+        return Response(APIStatus.BAD_REQUEST).to_json()
+
+
+
+
+    
         
 
