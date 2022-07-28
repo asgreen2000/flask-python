@@ -6,19 +6,22 @@ from flask_mongoengine import MongoEngine
 from dataclasses import dataclass
 from mongoengine import *
 
-class Role(Enum):
-    ADMIN = 1
-    USER = 2
 
 class User(Document):
-    id = IntField(primary_key=True)
+
+    class Role(Enum):
+        ADMIN = 0
+        USER = 1
+    
+    id = StringField(primary_key=True)
     name = StringField(required=True)
     username = StringField(required=True, unique=True)
-    role = StringField(required=True, default=Role.USER)
+    role = EnumField(required=True, default=Role.USER, enum=Role)
     phone_number = StringField(required=False)
     email = StringField(required=False, unique=True)
     address = StringField(required=False)
     meta = { 'collection': 'users' }
+
 
     # create a field that equals to the id of the user
     def get_id(self):
@@ -73,16 +76,5 @@ class User(Document):
 
 
     
-
-class UserUtil:
-
-    @staticmethod
-    def cast(json: str) -> User:
-        username = json['username']
-        name = json['name']
-        phone_number = json['phone_number']
-        role = json['role']
-        user_id = str(json['_id'])
-        return User(username, name, phone_number, role).set_id(user_id)
        
 

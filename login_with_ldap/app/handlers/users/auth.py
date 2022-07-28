@@ -3,7 +3,7 @@ from flask import request, Flask
 from app.engine.ldap_service import auth as auth_engine
 from app.engine.ldap_service.models.LdapUser import LdapUser
 from . import users
-from app.engine.user import *
+from app.engine.user import User, BaseEngineBL as ENGINE_USER
 from app.engine.jwt import *
 from app.constants import APIStatus, Response, ResponseObject
 from .dtos import *
@@ -20,9 +20,11 @@ def login():
         
         is_authenticated:bool = auth_engine.ldap_login(LdapUser(username, password))
         if is_authenticated:
-            user : User = find_user_by_username(username)
+            user : User = ENGINE_USER.find_user_by_username(username)
             if user is None:
-                user = insert_user(User(username))
+                user = User(username=username, name=username, role=User.Role.USER, phone_number=None, email=None, address=None)
+                user = ENGINE_USER.insert_user(user)
+
             jwt_user: JwtResult = generate_token(user)
             jwt_user_refresh: JwtResult = generate_token(user, True)
 

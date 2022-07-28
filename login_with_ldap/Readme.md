@@ -14,11 +14,11 @@ https://flask.palletsprojects.com/en/1.1.x/tutorial/database/
 # document about jwt
 https://jwt.io/
 # document about system architecture
-https://www.mongodb.com/blog/post/mongodb-3-6-new-system-architecture-for-mongodb-4-0
+https://realpython.com/flask-blueprint/
 # document about design pattern for flask
 https://flask.palletsprojects.com/en/1.1.x/patterns/
-# document about design pattern for mongoengine
-https://docs.mongoengine.org/guide/patterns/
+# document about design pattern for mongo database
+https://www.mongodb.com/blog/post/building-with-patterns-a-summary
 # document about restful api
 https://flask-restful.readthedocs.io/en/latest/
 # document about logger
@@ -38,3 +38,6 @@ python3 run.py production
 # 1. run docker
 docker build . -t mongoengine-flask-restful-api
 docker run -p 5000:5000 -d mongoengine-flask-restful-api
+
+
+

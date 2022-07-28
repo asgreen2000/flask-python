@@ -10,15 +10,15 @@ from .helper import *
 from app import app
 
 # create a route for get user info
-@users.route('/<string:userId>', methods=['GET'])
+@users.route('/<string:targetUserId>', methods=['GET'])
 @token_required
-def get_user_info(user: User, userId: str):
+def get_user_info(userId: User, targetUserId: str):
 
-    target_user: User = ENGINE_USER.find_user_by_id(userId)
+    target_user: User = ENGINE_USER.find_user_by_id(targetUserId)
     
     if target_user is None:
         return Response(APIStatus.NOT_FOUND).to_json()
-    if (user.get_id() == userId):
+    if (targetUserId == userId):
         user_info = cast_user_to_user_dto(target_user, True)
         return ResponseObject(APIStatus.SUCCESS, user_info.to_json()).to_json()
     user_info = cast_user_to_user_dto(target_user, False)
