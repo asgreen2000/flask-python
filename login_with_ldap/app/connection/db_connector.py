@@ -1,6 +1,5 @@
-from pymongo import MongoClient
+import mongoengine
 from config import Config
 
 
-client = MongoClient(Config.MONGODB_URL)
-db = client[Config.MONGODB_DB]
+client = mongoengine.connect(host=Config.MONGODB_URL)

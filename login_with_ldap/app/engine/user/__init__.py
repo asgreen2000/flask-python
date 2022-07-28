@@ -1,3 +1,3 @@
 from .models import User
-from .base_engine_bl import *
+import base_engine_bl
 from .helper import *
