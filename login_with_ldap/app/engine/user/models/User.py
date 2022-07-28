@@ -12,6 +12,13 @@ class User(Document):
     class Role(Enum):
         ADMIN = 0
         USER = 1
+
+        # convert to string
+        def __str__(self):
+            if self.value == 0:
+                return "ADMIN"
+            else:
+                return "USER"
     
     id = StringField(primary_key=True)
     name = StringField(required=True)

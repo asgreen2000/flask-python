@@ -2,7 +2,7 @@ from flask import request, Flask
 from app.engine.ldap_service import auth as auth_engine
 from app.engine.ldap_service.models.LdapUser import LdapUser
 from . import users
-from app.engine.user import base_engine_bl as ENGINE_USER
+from app.engine.user import BaseEngineBL as ENGINE_USER
 from app.engine.jwt import *
 from app.constants import APIStatus, Response, ResponseObject
 from .dtos import *
@@ -25,17 +25,18 @@ def get_user_info(userId: User, targetUserId: str):
     return ResponseObject(APIStatus.SUCCESS, user_info.to_json()).to_json()
 
 # create a route for update user info
-@users.route('/', methods=['PUT'])
+@users.route('/<string:targetUserId>', methods=['PUT'])
 @token_required
-def update_user_info(user: User):
+def update_user_info(userId: str, targetUserId: str):
     try:
+        if (userId != targetUserId):
+            return Response(APIStatus.NOT_ALLOWED).to_json()
          # get body
         body = request.get_json()
-        # update user info
-        # convert body to User
-        target_user = cast_json_to_user_update(body)
-        # update user info
-        is_success: bool = ENGINE_USER.update_user(user.get_id(), target_user.to_json())
+        # not allowed to update Id field
+        if 'id' in body:
+            del body['id']
+        is_success: bool = ENGINE_USER.update_user(userId, body)
         if is_success == True:
             return Response(APIStatus.SUCCESS).to_json()
         else:

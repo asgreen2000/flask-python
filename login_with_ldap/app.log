@@ -848,3 +848,74 @@
 2022-07-28 16:07:49,912:INFO: * Debugger PIN: 290-168-250
 2022-07-28 16:07:58,022:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\engine\\user\\__init__.py', reloading
 2022-07-28 16:07:58,583:INFO: * Restarting with stat
+2022-07-28 16:08:15,648:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-28 16:08:15,650:INFO: * Restarting with stat
+2022-07-28 16:08:24,841:WARNING: * Debugger is active!
+2022-07-28 16:08:24,842:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:08:24,851:INFO:127.0.0.1 - - [28/Jul/2022 16:08:24] "[32mPOST /api/users HTTP/1.1[0m" 308 -
+2022-07-28 16:08:30,373:INFO:127.0.0.1 - - [28/Jul/2022 16:08:30] "POST /api/users/ HTTP/1.1" 200 -
+2022-07-28 16:09:45,627:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:09:45,970:INFO: * Restarting with stat
+2022-07-28 16:09:55,121:WARNING: * Debugger is active!
+2022-07-28 16:09:55,122:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:10:06,546:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:10:07,128:INFO: * Restarting with stat
+2022-07-28 16:10:16,203:WARNING: * Debugger is active!
+2022-07-28 16:10:16,205:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:10:23,314:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:10:23,784:INFO: * Restarting with stat
+2022-07-28 16:12:20,907:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-28 16:12:20,908:INFO: * Restarting with stat
+2022-07-28 16:12:30,025:WARNING: * Debugger is active!
+2022-07-28 16:12:30,025:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:12:34,344:INFO:127.0.0.1 - - [28/Jul/2022 16:12:34] "[32mPOST /api/users HTTP/1.1[0m" 308 -
+2022-07-28 16:12:39,856:INFO:127.0.0.1 - - [28/Jul/2022 16:12:39] "POST /api/users/ HTTP/1.1" 200 -
+2022-07-28 16:13:29,022:INFO:127.0.0.1 - - [28/Jul/2022 16:13:29] "[31m[1mPUT /api/users/62e251b09a5a8cd82ce33036 HTTP/1.1[0m" 405 -
+2022-07-28 16:13:41,666:INFO:127.0.0.1 - - [28/Jul/2022 16:13:41] "[31m[1mPUT /api/users/62e251b09a5a8cd82ce33036 HTTP/1.1[0m" 405 -
+2022-07-28 16:14:22,110:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:14:22,658:INFO: * Restarting with stat
+2022-07-28 16:14:38,355:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-28 16:14:38,356:INFO: * Restarting with stat
+2022-07-28 16:14:47,480:WARNING: * Debugger is active!
+2022-07-28 16:14:47,482:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:14:47,490:ERROR:'id'
+2022-07-28 16:14:47,491:INFO:127.0.0.1 - - [28/Jul/2022 16:14:47] "PUT /api/users/62e251b09a5a8cd82ce33036 HTTP/1.1" 200 -
+2022-07-28 16:15:27,873:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:15:28,219:INFO: * Restarting with stat
+2022-07-28 16:15:37,286:WARNING: * Debugger is active!
+2022-07-28 16:15:37,286:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:15:51,187:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-28 16:15:51,187:INFO: * Restarting with stat
+2022-07-28 16:16:00,294:WARNING: * Debugger is active!
+2022-07-28 16:16:00,296:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:16:00,304:ERROR:module 'app.engine.user.base_engine_bl' has no attribute 'update_user'
+2022-07-28 16:16:00,305:INFO:127.0.0.1 - - [28/Jul/2022 16:16:00] "PUT /api/users/62e251b09a5a8cd82ce33036 HTTP/1.1" 200 -
+2022-07-28 16:16:37,721:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:16:38,186:INFO: * Restarting with stat
+2022-07-28 16:16:51,488:INFO: * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+2022-07-28 16:16:51,488:INFO: * Restarting with stat
+2022-07-28 16:17:00,632:WARNING: * Debugger is active!
+2022-07-28 16:17:00,634:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:17:06,343:INFO:127.0.0.1 - - [28/Jul/2022 16:17:06] "PUT /api/users/62e251b09a5a8cd82ce33036 HTTP/1.1" 200 -
+2022-07-28 16:17:26,946:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:17:27,542:INFO: * Restarting with stat
+2022-07-28 16:17:36,631:WARNING: * Debugger is active!
+2022-07-28 16:17:36,632:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:17:38,657:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\info.py', reloading
+2022-07-28 16:17:39,307:INFO: * Restarting with stat
+2022-07-28 16:17:48,417:WARNING: * Debugger is active!
+2022-07-28 16:17:48,419:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:19:00,799:INFO:127.0.0.1 - - [28/Jul/2022 16:19:00] "PUT /api/users/62e251b09a5a8cd82ce33036 HTTP/1.1" 200 -
+2022-07-28 16:20:00,966:INFO:127.0.0.1 - - [28/Jul/2022 16:20:00] "[35m[1mGET /api/users/62e251b09a5a8cd82ce33036 HTTP/1.1[0m" 500 -
+2022-07-28 16:20:58,404:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\helper\\cast.py', reloading
+2022-07-28 16:20:58,940:INFO: * Restarting with stat
+2022-07-28 16:21:08,036:WARNING: * Debugger is active!
+2022-07-28 16:21:08,038:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:21:21,366:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\engine\\user\\models\\User.py', reloading
+2022-07-28 16:21:21,956:INFO: * Restarting with stat
+2022-07-28 16:21:31,170:WARNING: * Debugger is active!
+2022-07-28 16:21:31,172:INFO: * Debugger PIN: 290-168-250
+2022-07-28 16:21:46,344:INFO: * Detected change in 'D:\\Flask\\login_with_ldap\\app\\handlers\\users\\helper\\cast.py', reloading
+2022-07-28 16:21:46,886:INFO: * Restarting with stat
+2022-07-28 16:21:56,016:WARNING: * Debugger is active!
+2022-07-28 16:21:56,019:INFO: * Debugger PIN: 290-168-250
